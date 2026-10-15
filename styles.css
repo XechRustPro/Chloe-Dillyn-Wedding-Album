@@ -1,24 +1,25 @@
-
 /* =========================================
    CHLOE & DILLYN — WEDDING ALBUM
-   Ivory, sage green and champagne gold
+   Rich Purple, Burgundy, and White Theme
    ========================================= */
 
 :root {
-  --cream: #faf8f2;
-  --ivory: #f3f0e7;
-  --sage: #87947a;
-  --sage-dark: #465746;
-  --gold: #b7a276;
-  --text: #343b32;
-  --muted: #77796e;
+  --bg-primary: #1c1421;
+  --bg-card: #ffffff;
+  --text-main: #2b2b2b;
+  --text-muted: #666666;
+  --color-purple: #7b4397;
+  --color-burgundy: #9c2744;
+  --color-burgundy-hover: #7b1e34;
   --white: #ffffff;
-  --line: #e3e0d5;
-  --shadow: 0 16px 45px rgba(53, 64, 48, 0.09);
+  --border-subtle: rgba(123, 67, 151, 0.2);
+  --shadow-elegant: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -27,1228 +28,127 @@ html {
 }
 
 body {
-  margin: 0;
-  background: var(--cream);
-  color: var(--text);
-  font-family: "DM Sans", sans-serif;
-  line-height: 1.7;
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  line-height: 1.6;
+  min-height: 100vh;
 }
 
-::selection {
-  background: #dce2d4;
-  color: var(--sage-dark);
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button,
-input,
-textarea {
-  font: inherit;
-}
-
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
-}
-
-img {
-  max-width: 100%;
-}
-
-[hidden] {
-  display: none !important;
-}
-
-/* Paper texture */
-
-.paper-grain {
-  position: fixed;
-  inset: 0;
-  z-index: 10;
-  pointer-events: none;
-  opacity: 0.12;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.13'/%3E%3C/svg%3E");
-}
-
-.section-wrap {
-  width: min(1160px, calc(100% - 48px));
-  margin-inline: auto;
-}
-
-/* Navigation */
-
+/* Custom Wedding Header */
 .site-header {
+  background: linear-gradient(135deg, #1c1421 0%, #2a1b33 100%);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 1.25rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   position: sticky;
   top: 0;
-  z-index: 20;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 17px max(24px, calc((100vw - 1160px) / 2));
-  background: rgba(250, 248, 242, 0.94);
-  border-bottom: 1px solid rgba(135, 148, 122, 0.18);
-  backdrop-filter: blur(14px);
+  z-index: 100;
 }
 
 .wordmark {
+  text-decoration: none;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  line-height: 1.2;
 }
 
-.wordmark-mark,
-.footer-brand {
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 29px;
-  letter-spacing: -1px;
+.wordmark-mark {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 1px;
 }
 
-.wordmark-mark span,
-.footer-brand span,
-.closing-names span {
-  color: var(--gold);
-  font-style: italic;
+.wordmark-mark span {
+  color: var(--color-burgundy);
+  padding: 0 0.15rem;
 }
 
 .wordmark-caption {
-  margin-top: 5px;
-  font-size: 9px;
-  letter-spacing: 2.4px;
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  color: #d1c4e9;
+  text-transform: uppercase;
 }
 
+/* Navigation */
 .desktop-nav {
   display: flex;
   align-items: center;
-  gap: 32px;
-  font-size: 12px;
-  letter-spacing: 0.4px;
+  gap: 2rem;
 }
 
-.desktop-nav a:not(.nav-cta):hover,
-.site-footer a:hover {
-  color: var(--sage);
+.desktop-nav a {
+  color: #e0d7ec;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.desktop-nav a:hover {
+  color: var(--white);
 }
 
 .nav-cta {
-  padding: 11px 18px;
-  border: 1px solid var(--sage);
-  border-radius: 3px;
-  transition: background 0.25s, color 0.25s;
+  background-color: var(--color-burgundy) !important;
+  color: var(--white) !important;
+  padding: 0.6rem 1.25rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(156, 39, 68, 0.3);
+  transition: background-color 0.2s ease, transform 0.1s ease !important;
 }
 
 .nav-cta:hover {
-  color: white;
-  background: var(--sage-dark);
+  background-color: var(--color-burgundy-hover) !important;
+  transform: translateY(-1px);
 }
 
+/* Main Container Card */
+.wedding-container {
+  max-width: 900px;
+  margin: 3rem auto;
+  background-color: var(--bg-card);
+  border-radius: 16px;
+  box-shadow: var(--shadow-elegant);
+  padding: 3rem;
+  overflow: hidden;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--bg-primary);
+}
+
+/* Responsive Menu Toggle */
 .menu-toggle {
   display: none;
-}
-
-/* Hero section */
-
-.hero {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr 0.85fr;
-  align-items: center;
-  gap: 70px;
-  min-height: 640px;
-  padding-top: 70px;
-  padding-bottom: 100px;
-}
-
-.hero-copy {
-  position: relative;
-  z-index: 2;
-}
-
-.eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: var(--sage-dark);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.eyebrow-line {
-  display: inline-block;
-  width: 28px;
-  height: 1px;
-  background: var(--gold);
-}
-
-h1,
-h2,
-h3,
-p {
-  margin-top: 0;
-}
-
-.hero h1 {
-  margin: 25px 0 12px;
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(68px, 8vw, 110px);
-  font-weight: 400;
-  letter-spacing: -5px;
-  line-height: 0.98;
-}
-
-.hero h1 em,
-.hero-subtitle em,
-h2 em {
-  color: var(--sage);
-  font-weight: 400;
-}
-
-.title-period {
-  color: var(--gold);
-}
-
-.hero-subtitle {
-  margin: 25px 0 15px;
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(22px, 3vw, 32px);
-}
-
-.hero-description {
-  max-width: 450px;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  min-height: 50px;
-  padding: 14px 23px;
-  border: 1px solid transparent;
-  border-radius: 3px;
-  cursor: pointer;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  transition: transform 0.2s, background 0.2s;
-}
-
-.button:hover {
-  transform: translateY(-2px);
-}
-
-.button-dark {
-  color: white;
-  background: var(--sage-dark);
-}
-
-.button-dark:hover {
-  background: #344534;
-}
-
-.hero-note {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 24px;
-  color: var(--muted);
-  font-size: 11px;
-}
-
-.note-sparkle {
-  color: var(--gold);
-  font-size: 20px;
-}
-
-/* Decorative hero artwork */
-
-.hero-art {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 450px;
-  isolation: isolate;
-}
-
-.sun-disc {
-  position: absolute;
-  top: 4%;
-  right: 3%;
-  z-index: -1;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background: #e6e6d8;
-}
-
-.arch {
-  position: absolute;
-  bottom: 30px;
-  width: 72%;
-  height: 88%;
-  border-radius: 180px 180px 0 0;
-}
-
-.arch-back {
-  right: 1%;
-  background: #e6e8dc;
-  transform: rotate(5deg);
-}
-
-.arch-front {
-  left: 9%;
-  overflow: hidden;
-  border: 9px solid #f7f4ec;
-  background: #c5ceba;
-  box-shadow: var(--shadow);
-}
-
-.arch-photo {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  background: linear-gradient(
-    #d9dfd1,
-    #e9e8d8 64%,
-    #bdc8ae 64%
-  );
-}
-
-.photo-sky {
-  position: absolute;
-  top: 12%;
-  left: 18%;
-  width: 65%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: #f2e9cf;
-  opacity: 0.9;
-}
-
-.photo-hill {
-  position: absolute;
-  bottom: -8%;
-  width: 110%;
-  height: 40%;
-  border-radius: 50% 50% 0 0;
-}
-
-.hill-one {
-  left: -30%;
-  background: #a6b49b;
-  transform: rotate(-8deg);
-}
-
-.hill-two {
-  right: -40%;
-  background: #81957a;
-  transform: rotate(12deg);
-}
-
-.photo-sun {
-  position: absolute;
-  top: 25%;
-  left: 44%;
-  width: 14%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: #fff9e9;
-}
-
-.photo-person {
-  position: absolute;
-  bottom: 17%;
-  width: 18%;
-  height: 36%;
-  border-radius: 45% 45% 8% 8%;
-  background: #f0e4d1;
-}
-
-.person-one {
-  left: 32%;
-  transform: rotate(-7deg);
-}
-
-.person-two {
-  left: 51%;
-  background: #e2d5c1;
-  transform: rotate(7deg);
-}
-
-.floating-stamp {
-  position: absolute;
-  padding: 13px 17px;
-  color: var(--sage-dark);
-  background: #faf8f2;
-  box-shadow: var(--shadow);
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 14px;
-  font-style: italic;
-}
-
-.stamp-one {
-  top: 13%;
-  left: 0;
-  transform: rotate(-8deg);
-}
-
-.stamp-one span {
-  color: var(--gold);
-}
-
-.stamp-two {
-  right: 0;
-  bottom: 13%;
-  transform: rotate(5deg);
-}
-
-.hero-flower {
-  position: absolute;
-  z-index: 3;
-  width: 90px;
-  height: 145px;
-}
-
-.flower-left {
-  bottom: 3%;
-  left: -4%;
-}
-
-.flower-right {
-  top: 5%;
-  right: -4%;
-}
-
-.hero-caption {
-  position: absolute;
-  right: 10%;
-  bottom: 0;
-  left: 10%;
-  display: flex;
-  justify-content: space-between;
-  color: var(--muted);
-  font-size: 9px;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
-}
-
-.hero-bottomline {
-  position: absolute;
-  right: 0;
-  bottom: 28px;
-  left: 0;
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  padding-top: 18px;
-  border-top: 1px solid var(--line);
-  color: var(--muted);
-  font-size: 9px;
-  letter-spacing: 1.5px;
-}
-
-/* Welcome and introduction */
-
-.intro {
-  position: relative;
-  padding-top: 115px;
-  padding-bottom: 125px;
-  border-top: 1px solid var(--line);
-}
-
-.section-kicker {
-  margin-bottom: 30px;
-  color: var(--sage-dark);
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.intro-content {
-  display: grid;
-  grid-template-columns: 1fr 0.85fr;
-  align-items: start;
-  gap: 90px;
-}
-
-h2 {
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(38px, 5vw, 62px);
-  font-weight: 400;
-  letter-spacing: -1.5px;
-  line-height: 1.13;
-}
-
-.intro-text {
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.intro-text p {
-  margin-bottom: 19px;
-}
-
-.intro-text .signature {
-  margin-top: 28px;
-  color: var(--sage-dark);
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 19px;
-  font-style: italic;
-}
-
-.signature span {
-  color: var(--gold);
-}
-
-.little-flower {
-  position: absolute;
-  right: 4%;
-  bottom: 35px;
-  color: var(--sage);
-  font-size: 35px;
-}
-
-/* Wedding moments */
-
-.moments {
-  padding-top: 95px;
-  padding-bottom: 125px;
-}
-
-.moments-heading {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 30px;
-  margin-bottom: 45px;
-}
-
-.moments-heading h2 {
-  margin-bottom: 0;
-}
-
-.moments-aside {
-  margin-bottom: 7px;
-  color: var(--muted);
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 17px;
-  font-style: italic;
-  line-height: 1.8;
-}
-
-.moment-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
-  gap: 22px;
-}
-
-.moment-card {
-  min-width: 0;
-  border: 1px solid var(--line);
-  background: #fffdf8;
-  transition: transform 0.25s, box-shadow 0.25s;
-}
-
-.moment-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow);
-}
-
-.moment-illustration {
-  position: relative;
-  min-height: 230px;
-  overflow: hidden;
-  background: #e7e9df;
-}
-
-.moment-large .moment-illustration {
-  min-height: 280px;
-}
-
-.illustration-hug {
-  background: #e4e7dc;
-}
-
-.sun-shape {
-  position: absolute;
-  top: 18%;
-  left: 38%;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background: #f5edda;
-}
-
-.person-shape {
-  position: absolute;
-  bottom: -8%;
-  width: 29%;
-  height: 60%;
-  border-radius: 45% 45% 0 0;
-  background: #9ba88f;
-}
-
-.person-a {
-  left: 25%;
-  transform: rotate(-12deg);
-}
-
-.person-b {
-  right: 25%;
-  background: #c6b49a;
-  transform: rotate(12deg);
-}
-
-.drawn-heart {
-  position: absolute;
-  top: 38%;
-  left: 47%;
-  color: #faf8f2;
-  font-family: serif;
-  font-size: 35px;
-}
-
-.illustration-table {
-  background: #eee8dc;
-}
-
-.table-oval {
-  position: absolute;
-  right: 8%;
-  bottom: 22%;
-  left: 8%;
-  height: 23%;
-  border-radius: 50%;
-  background: #c9bba3;
-}
-
-.glass {
-  position: absolute;
-  bottom: 33%;
-  width: 22px;
-  height: 58px;
-  border: 2px solid #fffaf0;
-  border-radius: 4px 4px 9px 9px;
-}
-
-.glass-a {
-  left: 30%;
-}
-
-.glass-b {
-  right: 28%;
-}
-
-.flower-vase {
-  position: absolute;
-  top: 20%;
-  left: 47%;
-  color: var(--sage);
-  font-size: 46px;
-}
-
-.illustration-dance {
-  background: #dce4d8;
-}
-
-.disco-star {
-  position: absolute;
-  top: 12%;
-  right: 18%;
-  color: #c6ad7b;
-  font-size: 38px;
-}
-
-.dance-person {
-  position: absolute;
-  bottom: -5%;
-  width: 24%;
-  height: 56%;
-  border-radius: 45% 45% 0 0;
-  background: #83967c;
-}
-
-.dance-a {
-  left: 25%;
-  transform: rotate(12deg);
-}
-
-.dance-b {
-  right: 24%;
-  background: #b8a68c;
-  transform: rotate(-14deg);
-}
-
-.music-note {
-  position: absolute;
-  top: 26%;
-  left: 24%;
-  color: #f9f5e9;
-  font-size: 38px;
-}
-
-.moment-label {
-  padding: 23px;
-}
-
-.moment-label > span {
-  color: var(--gold);
-  font-size: 10px;
-  letter-spacing: 2px;
-}
-
-.moment-label h3 {
-  margin: 10px 0 6px;
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 23px;
-  font-weight: 400;
-}
-
-.moment-label p {
-  margin-bottom: 0;
-  color: var(--muted);
-  font-size: 12px;
-}
-
-/* Photo sharing section */
-
-.share-section {
-  position: relative;
-  overflow: hidden;
-  padding: 100px 24px 90px;
-  background: #e9ece3;
-}
-
-.share-inner {
-  width: min(660px, 100%);
-  margin-inline: auto;
-  text-align: center;
-}
-
-.eyebrow-center {
-  justify-content: center;
-}
-
-.share-inner h2 {
-  margin: 23px 0;
-  font-size: clamp(43px, 6vw, 68px);
-}
-
-.share-intro {
-  max-width: 510px;
-  margin: 0 auto 35px;
-  color: #697064;
-  font-size: 14px;
-}
-
-.share-decoration {
-  position: absolute;
-  color: #a7b29d;
-  font-family: serif;
-  opacity: 0.55;
-}
-
-.decor-left {
-  top: 15%;
-  left: 7%;
-  font-size: 90px;
-}
-
-.decor-right {
-  right: 8%;
-  bottom: 10%;
-  font-size: 110px;
-}
-
-.upload-card {
-  padding: 25px;
-  border: 1px solid #dce0d5;
-  border-radius: 5px;
-  background: #fffdf8;
-  box-shadow: var(--shadow);
-  text-align: left;
-}
-
-.upload-card-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 22px;
-}
-
-.upload-icon {
-  color: var(--sage-dark);
-  font-size: 25px;
-}
-
-.upload-small-label {
-  color: var(--muted);
-  font-size: 9px;
-  letter-spacing: 2px;
-}
-
-.upload-heart {
-  color: var(--gold);
-  font-size: 22px;
-}
-
-.drop-zone {
-  padding: 35px 18px;
-  border: 1px dashed #aab5a0;
-  border-radius: 4px;
-  background: #f7f7f0;
-  text-align: center;
-  cursor: pointer;
-  transition: background 0.2s, border-color 0.2s;
-}
-
-.drop-zone:hover,
-.drop-zone:focus-visible {
-  border-color: var(--sage-dark);
-  background: #eef0e7;
-  outline: none;
-}
-
-.upload-cloud {
-  display: grid;
-  place-items: center;
-  width: 48px;
-  height: 48px;
-  margin: 0 auto 13px;
-  border-radius: 50%;
-  color: white;
-  background: var(--sage);
-  font-size: 24px;
-}
-
-.drop-zone h3 {
-  margin-bottom: 4px;
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 23px;
-  font-weight: 400;
-}
-
-.drop-zone p {
-  margin-bottom: 9px;
-  color: var(--muted);
-  font-size: 12px;
-}
-
-.drop-zone p span {
-  color: var(--sage-dark);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.drop-zone small {
-  color: #85877e;
-  font-size: 10px;
-}
-
-.upload-form {
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-  margin-top: 25px;
-}
-
-.upload-form label {
-  margin-top: 8px;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.upload-form label span {
-  color: var(--muted);
-  font-weight: 400;
-}
-
-.upload-form input,
-.upload-form textarea {
-  width: 100%;
-  padding: 13px 14px;
-  border: 1px solid #dedfd5;
-  border-radius: 3px;
-  outline: none;
-  color: var(--text);
-  background: #fffefa;
-  font-size: 13px;
-  transition: border-color 0.2s;
-}
-
-.upload-form input:focus,
-.upload-form textarea:focus {
-  border-color: var(--sage);
-}
-
-.upload-form textarea {
-  resize: vertical;
-}
-
-.privacy-note {
-  display: flex;
-  align-items: start;
-  gap: 10px;
-  margin: 12px 0;
-  padding: 13px;
-  background: #f2f2e9;
-}
-
-.privacy-note > span {
-  color: var(--sage-dark);
-}
-
-.privacy-note p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 11px;
-  line-height: 1.7;
-}
-
-.upload-submit {
-  width: 100%;
+  background: none;
   border: none;
-}
-
-.upload-status {
-  margin: 8px 0 0;
-  color: var(--muted);
-  font-size: 11px;
-  text-align: center;
-}
-
-.preview-area {
-  margin-top: 18px;
-}
-
-.preview-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
-  font-size: 12px;
-}
-
-.text-button {
-  border: 0;
-  color: var(--sage-dark);
-  background: transparent;
   cursor: pointer;
-  text-decoration: underline;
+  flex-direction: column;
+  gap: 6px;
 }
 
-.preview-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
+.menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--white);
 }
 
-.preview-grid img {
-  width: 100%;
-  aspect-ratio: 1;
-  border-radius: 3px;
-  object-fit: cover;
-}
-
-/* Closing section */
-
-.share-footer-note {
-  margin: 28px 0 0;
-  color: var(--sage-dark);
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 15px;
-  font-style: italic;
-}
-
-.share-footer-note span {
-  color: var(--gold);
-}
-
-.closing {
-  padding-top: 100px;
-  padding-bottom: 100px;
-  text-align: center;
-}
-
-.closing-ornament {
-  color: var(--gold);
-  font-size: 30px;
-}
-
-.closing h2 {
-  margin-bottom: 15px;
-  font-size: clamp(34px, 5vw, 55px);
-}
-
-.closing > p:not(.closing-ornament) {
-  color: var(--muted);
-  font-size: 13px;
-}
-
-.closing-names {
-  margin-top: 24px;
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 30px;
-}
-
-/* Footer */
-
-.site-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 25px max(24px, calc((100vw - 1160px) / 2));
-  color: #f7f5ed;
-  background: var(--sage-dark);
-}
-
-.footer-brand {
-  color: white;
-}
-
-.footer-brand span {
-  color: #d4c39b;
-}
-
-.site-footer > span,
-.site-footer > a:last-child {
-  font-size: 9px;
-  letter-spacing: 1.3px;
-}
-
-.site-footer > a:last-child:hover {
-  color: #d4c39b;
-}
-
-/* Subtle entrance animation */
-
-.reveal {
-  animation: fade-up 0.8s ease both;
-}
-
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-/* Tablet layout */
-
-@media (max-width: 800px) {
-  .section-wrap {
-    width: min(calc(100% - 36px), 600px);
-  }
-
-  .site-header {
-    padding: 14px 20px;
-  }
-
+@media (max-width: 768px) {
   .desktop-nav {
-    gap: 15px;
-    font-size: 11px;
-  }
-
-  .hero {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding-top: 60px;
-    padding-bottom: 75px;
-  }
-
-  .hero-copy {
-    max-width: 600px;
-  }
-
-  .hero-art {
-    width: min(100%, 460px);
-    min-height: 410px;
-    margin: 0 auto;
-  }
-
-  .hero-bottomline {
-    bottom: 15px;
-    font-size: 8px;
-  }
-
-  .intro {
-    padding-top: 75px;
-    padding-bottom: 85px;
-  }
-
-  .intro-content {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .moments {
-    padding-top: 75px;
-    padding-bottom: 85px;
-  }
-
-  .moment-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .moment-large {
-    grid-column: 1 / -1;
-  }
-
-  .moments-heading {
-    align-items: start;
-    flex-direction: column;
-  }
-
-  .decor-left {
-    left: -3%;
-  }
-
-  .decor-right {
-    right: -4%;
-  }
-}
-
-/* Mobile layout */
-
-@media (max-width: 520px) {
-  .section-wrap {
-    width: calc(100% - 36px);
-  }
-
-  .wordmark-mark {
-    font-size: 25px;
-  }
-
-  .wordmark-caption {
-    font-size: 8px;
-    letter-spacing: 1.6px;
-  }
-
-  .desktop-nav {
-    gap: 10px;
-  }
-
-  .desktop-nav a:not(.nav-cta) {
     display: none;
   }
-
-  .nav-cta {
-    padding: 9px 11px;
-    font-size: 10px;
+  .menu-toggle {
+    display: flex;
   }
-
-  .hero {
-    padding-top: 45px;
-  }
-
-  .hero h1 {
-    font-size: clamp(62px, 16vw, 82px);
-    letter-spacing: -3px;
-  }
-
-  .hero-description {
-    font-size: 13px;
-  }
-
-  .hero-art {
-    min-height: 340px;
-  }
-
-  .sun-disc {
-    width: 105px;
-    height: 105px;
-  }
-
-  .floating-stamp {
-    padding: 10px 12px;
-    font-size: 11px;
-  }
-
-  .hero-flower {
-    width: 65px;
-    height: 110px;
-  }
-
-  .hero-bottomline {
-    font-size: 7px;
-    letter-spacing: 0.6px;
-  }
-
-  h2 {
-    font-size: 40px;
-  }
-
-  .moment-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .moment-large {
-    grid-column: auto;
-  }
-
-  .moment-illustration,
-  .moment-large .moment-illustration {
-    min-height: 220px;
-  }
-
-  .share-section {
-    padding: 70px 15px;
-  }
-
-  .share-inner h2 {
-    font-size: 46px;
-  }
-
-  .upload-card {
-    padding: 16px;
-  }
-
-  .drop-zone {
-    padding: 28px 10px;
-  }
-
-  .drop-zone h3 {
-    font-size: 21px;
-  }
-
-  .site-footer {
-    flex-wrap: wrap;
-    padding: 23px 18px;
-  }
-
-  .site-footer > span {
-    order: 3;
-    width: 100%;
-    text-align: center;
-  }
-
-  .site-footer > a:last-child {
-    font-size: 9px;
+  .wedding-container {
+    margin: 1rem;
+    padding: 1.5rem;
   }
 }
