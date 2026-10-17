@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#1c1421">
+  <meta name="theme-color" content="#173b34">
   <meta name="description" content="An open wedding album for Chloe & Dillyn. Everyone is welcome to share the little moments that make their wedding special.">
   <title>Chloe &amp; Dillyn — The Wedding Album</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,49 +13,54 @@
 </head>
 <body>
   <header class="site-header">
-    <a class="wordmark" href="#top" aria-label="Chloe and Dillyn wedding album home">
-      <span class="wordmark-mark">C <span>&amp;</span> D</span>
-      <span class="wordmark-caption">THE WEDDING ALBUM</span>
-    </a>
-    <nav class="desktop-nav" aria-label="Main navigation">
-      <a href="#story">The welcome</a>
-      <a href="#moments">The moments</a>
-      <a class="nav-cta" href="#share">Share a photo <span aria-hidden="true">↗</span></a>
-    </nav>
-    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-label="Open menu">
-      <span></span>
-      <span></span>
-    </button>
+    <div class="header-inner">
+      <a class="wordmark" href="#top" aria-label="Chloe and Dillyn wedding album home">
+        <span class="wordmark-mark">C <span>&amp;</span> D</span>
+        <span class="wordmark-caption">THE WEDDING ALBUM</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#story">Welcome</a>
+        <a href="#moments">Our moments</a>
+        <a class="nav-cta" href="#share">Share a photo <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
   </header>
 
-  <main class="wedding-container">
-    <!-- Main content container wrapper for custom purple/burgundy theme -->
-    <div id="top"></div>
-    
-    <!-- Hero / Welcome Section -->
-    <section id="story" style="padding: 2rem 0; text-align: center;">
-      <h1 style="font-size: 2.5rem; margin-bottom: 1rem; color: #1c1421;">Chloe &amp; Dillyn</h1>
-      <p style="color: #666; max-width: 600px; margin: 0 auto 2rem auto;">Welcome to our Wedding. We need your help to capture the moments that mean so much to us on this Special Day</p>
+  <main id="top">
+    <section class="hero" id="story" aria-labelledby="hero-title">
+      <img class="hero-image" src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&amp;fit=crop&amp;w=2200&amp;q=85" alt="A couple celebrating together at their wedding" fetchpriority="high">
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <p class="eyebrow">A day to remember</p>
+        <h1 id="hero-title">Chloe <span>&amp;</span> Dillyn</h1>
+        <p class="hero-copy">Help us hold on to the little moments that make this day ours.</p>
+        <a class="hero-link" href="#share">Share your photos <span aria-hidden="true">↓</span></a>
+      </div>
     </section>
 
-    <!-- Moments Section -->
-    <section id="moments" style="padding: 2rem 0;">
-      <h2 style="font-size: 2rem; margin-bottom: 1.5rem; text-align: center; color: #1c1421;">Take some photos, share some photo's</h2>
-      <p style="text-align: center;">Whether you're family, a friend, or a guest joining us to celebrate this beautiful day, we warmly invite you to take photos and share them here! Every moment is special, and we'd love to see this celebration through your eyes. Together, we can capture the love, joy, and unforgettable memories that make this day so meaningful. ❤️ </p>
-      <!-- Photo grid or gallery feed goes here -->
+    <section class="moments section-wrap" id="moments" aria-labelledby="moments-title">
+      <p class="eyebrow">Our day, through your eyes</p>
+      <h2 id="moments-title">Every moment belongs<br>in the album.</h2>
+      <p class="moments-copy">From the happy tears to the dance-floor stories, we would love to see the celebration through your eyes. Take a few photos, share your favorites, and help us remember it all.</p>
     </section>
 
-   <!-- Share Section -->
-    <section id="share" style="padding: 2rem 0; text-align: center;">
-      <h2 style="font-size: 2rem; margin-bottom: 1rem; color: #1c1421;">Share a Photo</h2>
-      <p style="color: #666; margin-bottom: 1.5rem;">Did you take any pictures? Upload it to share with everyone!</p>
-      
-      <form id="uploadForm" style="display: flex; flex-direction: column; align-items: center; gap: 1rem; max-width: 400px; margin: 0 auto;">
-        <input type="file" id="fileInput" accept="image/*" required style="padding: 0.5rem; border: 1px solid #ccc; border-radius: 8px; width: 100%;">
-        <button type="submit" style="background-color: var(--color-burgundy, #9c2744); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; cursor: pointer;">Upload Photo</button>
-      </form>
-      <div id="uploadStatus" style="margin-top: 1rem; font-size: 0.9rem; color: #666;"></div>
+    <section class="share" id="share" aria-labelledby="share-title">
+      <div class="share-inner">
+        <p class="eyebrow">Add to our album</p>
+        <h2 id="share-title">Share a photo</h2>
+        <p class="share-copy">Have a favorite moment from the day? We would love for you to share it with us.</p>
+        <form id="uploadForm" class="upload-form">
+          <label class="file-label" for="fileInput">Choose a photo</label>
+          <input type="file" id="fileInput" accept="image/*" required aria-describedby="file-help">
+          <p class="file-help" id="file-help">Image files only</p>
+          <button type="submit">Upload photo <span aria-hidden="true">↑</span></button>
+        </form>
+        <div id="uploadStatus" class="upload-status" role="status" aria-live="polite"></div>
+      </div>
     </section>
+    <footer class="site-footer">
+      <p>With love, Chloe &amp; Dillyn</p>
+    </footer>
   </main>
 
   <script src="config.js"></script>
