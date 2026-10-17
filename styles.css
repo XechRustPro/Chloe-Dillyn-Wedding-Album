@@ -158,13 +158,13 @@ h1, h2, h3 {
    border: none;
    color: var(--white);
    padding: 0.75rem 2rem;
-   border-radius: ;
+  border-radius: 50px;
    font-family: 'DM Sans', sans-serif;
    font-size: 1rem;
    font-weight: 600;
-   box-shadow: 0 4px 12px rgba(156, 39, 68, 0.3)
+  box-shadow: 0 4px 12px rgba(156, 39, 68, 0.3);
    cursor: pointer;
-   transition: background-color 0.2 ease, tranform 0.1 ease;
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 #uploadForm button:hover {
@@ -172,6 +172,35 @@ h1, h2, h3 {
    transform: translateY(-2px);
 }
 
-#upload button:active {
+#uploadForm button:active {
    transform: translateY(0);
+}
+
+#fileInput {
+  color: var(--text-muted);
+  background-color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+}
+
+#fileInput::file-selector-button {
+  background-color: var(--color-burgundy);
+  border: 0;
+  border-radius: 6px;
+  color: var(--white);
+  padding: 0.55rem 0.9rem;
+  margin-right: 0.75rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#fileInput::file-selector-button:hover {
+  background-color: var(--color-burgundy-hover);
+}
+
+#fileInput:focus-visible {
+  outline: 3px solid rgba(156, 39, 68, 0.35);
+  outline-offset: 3px;
 }
