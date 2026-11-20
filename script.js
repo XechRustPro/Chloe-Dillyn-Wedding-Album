@@ -1,4 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const twitchPlayer = document.getElementById("twitchPlayer");
+  const twitchChannel = window.TWITCH_CHANNEL?.trim();
+
+  if (twitchPlayer && twitchChannel) {
+    const playerUrl = new URL("https://player.twitch.tv/");
+    playerUrl.searchParams.set("channel", twitchChannel);
+    playerUrl.searchParams.set("parent", window.location.hostname);
+    playerUrl.searchParams.set("autoplay", "false");
+    twitchPlayer.src = playerUrl.toString();
+    twitchPlayer.hidden = false;
+
+    const streamPlaceholder = document.getElementById("streamPlaceholder");
+    if (streamPlaceholder) streamPlaceholder.hidden = true;
+  }
+
   const uploadForm = document.getElementById("uploadForm");
   const fileInput = document.getElementById("fileInput");
   const uploadStatus = document.getElementById("uploadStatus");

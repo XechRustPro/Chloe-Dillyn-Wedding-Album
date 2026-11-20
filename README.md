@@ -28,6 +28,17 @@ This project is prepared to upload images directly to Cloudinary using an **unsi
 
 **Never add a Cloudinary API secret or other private key to this project.** The cloud name and unsigned preset are public by design. An unsigned preset can be abused if left unrestricted, so review Cloudinary's available restrictions and usage limits. For a high-traffic event or stricter privacy needs, use a backend-mediated upload service instead.
 
+## Set up the wedding livestream
+
+The `livestream.html` page embeds a Twitch channel and includes the same photo upload form. To connect it:
+
+1. Create or choose the Twitch account that will broadcast the wedding. The channel name is the account name shown in its Twitch URL, not the stream key.
+2. In `config.js`, set `window.TWITCH_CHANNEL` to that channel name, for example `window.TWITCH_CHANNEL = "your_channel_name";`.
+3. Publish the site and open `livestream.html` on its final website address. The embed automatically uses that page's hostname for Twitch's required `parent` setting. If you use another domain, check the page on that domain too.
+4. Start broadcasting from Twitch or streaming software such as OBS. The player can be set up before the wedding; while the channel is not live, Twitch will show it as offline. Photo uploads work independently of the stream.
+
+Never put the Twitch stream key in `config.js` or any website file. Keep it private in your streaming software. Test the player and a photo upload on the published site before sharing the link.
+
 ### Privacy note
 
 The website tells guests that their photos are being shared with the couple. Be clear with guests about who can view the images. Cloudinary uploads may be accessible by URL depending on your account and delivery settings; do not promise that photos are private unless you configure and test private access. Consider deleting the photos from the storage account after the couple has downloaded them.
